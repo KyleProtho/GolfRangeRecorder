@@ -2,6 +2,8 @@
 
 A single-page web application to track and visualize your golf shots at the driving range. Users can select a club, place markers on the driving range image where their shots landed, and download an image with their recorded shots.
 
+[Open The App](https://kyleprotho.github.io/GolfRangeRecorder/)
+
 ## Features
 
 * Select a golf club from a dropdown menu.
