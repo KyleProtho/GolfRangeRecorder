@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Range Shot Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Driving Range Shot Tracker</h1>
+        <div class="controls">
+            <label for="club-select">Select Club:</label>
+            <select id="club-select">
+                <option value="driver">Driver</option>
+                <option value="3-wood">3 Wood</option>
+                <option value="4-wood">4 Wood</option>
+                <option value="5-wood">5 Wood</option>
+                <option value="7-wood">7 Wood</option>
+                <option value="1-iron">1 Iron</option>
+                <option value="2-iron">2 Iron</option>
+                <option value="3-iron">3 Iron</option>
+                <option value="4-iron">4 Iron</option>
+                <option value="5-iron">5 Iron</option>
+                <option value="6-iron">6 Iron</option>
+                <option value="7-iron">7 Iron</option>
+                <option value="8-iron">8 Iron</option>
+                <option value="9-iron">9 Iron</option>
+                <option value="pitching-wedge">Pitching Wedge</option>
+                <option value="gap-wedge">Gap Wedge</option>
+                <option value="sand-wedge">Sand Wedge</option>
+                <option value="lob-wedge">Lob Wedge</option>
+                <option value="hybrid">Hybrid</option>
+            </select>
+            <button id="undo-btn">Undo</button>
+            <button id="redo-btn">Redo</button>
+            <button id="download-btn">Download Image</button>
+        </div>
+        <div class="image-container">
+            <img id="driving-range-image" src="img/Scallys - Moon Twp PA.jpg" alt="Driving Range">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
