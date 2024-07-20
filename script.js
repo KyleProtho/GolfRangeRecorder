@@ -59,14 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     downloadBtn.addEventListener('click', () => {
-        html2canvas(container).then(canvas => {
+        html2canvas(container, {
+            scale: window.devicePixelRatio, // Ensures proper scaling
+            useCORS: true, // Ensures cross-origin images are rendered properly
+        }).then(canvas => {
             const link = document.createElement('a');
             link.download = 'driving-range-shots.png';
             link.href = canvas.toDataURL();
             link.click();
         });
     });
-
+    
     rangeSelect.addEventListener('change', (event) => {
         const selectedRange = event.target.value;
         image.src = selectedRange;
