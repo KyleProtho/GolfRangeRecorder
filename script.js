@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let undoStack = [];
 
     const drivingRanges = [
+        { path: 'img/Lake Erie Driving Range - Harborcreek PA.jpg', name: 'Lake Erie Driving Range - Harborcreek PA' },
         { path: 'img/Scallys - Moon Twp PA.jpg', name: 'Scallys - Moon Twp PA' },
         // Add more driving ranges here
         // { path: 'img/Range2.jpg', name: 'Range 2' },
-        // { path: 'img/Range3.jpg', name: 'Range 3' }
     ];
 
     // Populate the driving range dropdown
