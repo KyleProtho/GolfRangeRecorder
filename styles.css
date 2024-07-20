@@ -91,17 +91,21 @@ select option {
     margin-bottom: 20px;
 }
 
+/* Container Styling */
 .image-container {
-    position: relative;
+    position: relative; /* Ensure the container is relatively positioned */
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
+/* Marker Styling */
 .marker {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background-color: red;
-    border-radius: 50%;
-    transform: translate(-50%, -50%); /* This centers the marker */
+    position: absolute; /* Absolutely position markers within the container */
+    width: 4px; /* Adjust size as needed */
+    height: 4px; /* Adjust size as needed */
+    background-color: red; /* Marker color */
+    border-radius: 50%; /* Make markers circular */
+    transform: translate(-50%, -50%); /* Center the marker */
 }
 
 #range-select {
