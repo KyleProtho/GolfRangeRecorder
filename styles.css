@@ -119,11 +119,12 @@ select option {
 /* Marker Styling */
 .marker {
     position: absolute;
-    width: 4px; /* Increased size for visibility */
-    height: 4px; /* Increased size for visibility */
+    width: 4px;
+    height: 4px;
     background-color: red;
     border-radius: 50%;
-    transform: translate(-50%, -50%); /* This centers the marker on the click point */
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* This prevents markers from interfering with clicks */
 }
 
 #range-select {

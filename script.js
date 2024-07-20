@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const redoBtn = document.getElementById('redo-btn');
     const downloadBtn = document.getElementById('download-btn');
     const rangeSelect = document.getElementById('range-select');
-    let markers = [];
+    let markers = []; // Each item will be an object: { element, x, y }
     let undoStack = [];
 
     const drivingRanges = [
@@ -30,40 +30,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     image.addEventListener('click', (event) => {
         const rect = image.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-    
+        
         // Calculate the click position relative to the image
         const clickX = event.clientX - rect.left;
         const clickY = event.clientY - rect.top;
-    
-        // Calculate the scaling factors
-        const scaleX = image.naturalWidth / rect.width;
-        const scaleY = image.naturalHeight / rect.height;
-    
+        
+        // Calculate the position as a percentage of the image dimensions
+        const xPercent = (clickX / rect.width) * 100;
+        const yPercent = (clickY / rect.height) * 100;
+        
         // Create the marker
         const marker = document.createElement('div');
         marker.classList.add('marker');
-    
-        // Position the marker relative to the container
-        marker.style.left = `${clickX}px`;
-        marker.style.top = `${clickY}px`;
-    
+        
+        // Position the marker using percentages
+        marker.style.left = `${xPercent}%`;
+        marker.style.top = `${yPercent}%`;
+        
         container.appendChild(marker);
-        markers.push(marker);
+        markers.push({ element: marker, x: xPercent, y: yPercent });
     });
 
     undoBtn.addEventListener('click', () => {
         if (markers.length > 0) {
             const marker = markers.pop();
             undoStack.push(marker);
-            container.removeChild(marker);
+            container.removeChild(marker.element);
         }
     });
-
+    
     redoBtn.addEventListener('click', () => {
         if (undoStack.length > 0) {
             const marker = undoStack.pop();
-            container.appendChild(marker);
+            container.appendChild(marker.element);
             markers.push(marker);
         }
     });
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedRange = event.target.value;
         image.src = selectedRange;
         // Clear existing markers when the image changes
-        markers.forEach(marker => container.removeChild(marker));
+        markers.forEach(marker => container.removeChild(marker.element));
         markers = [];
         undoStack = [];
     });
