@@ -9,7 +9,11 @@
 <body>
     <div class="container">
         <h1>Golf Range Recorder</h1>
-        <p>Tap on the image to record your shots of <em>one club</em>, then download your results.</p>
+        <label for="range-select">First, select your driving range:</label>
+        <select id="range-select">
+            <!-- Options will be populated dynamically by JavaScript -->
+        </select>
+        <p>Then, tap on the image to record your shots of <em>one club</em>, then download your results.</p>
         <div class="controls">
             <!--
             <label for="club-select">Select Club:</label>
@@ -33,10 +37,6 @@
                 <option value="hybrid">Hybrid</option>
             </select>
             -->
-            <label for="range-select">Select Driving Range:</label>
-            <select id="range-select">
-                <!-- Options will be populated dynamically by JavaScript -->
-            </select>
             <button id="undo-btn" class="button">Undo</button>
             <button id="redo-btn" class="button">Redo</button>
         </div>
