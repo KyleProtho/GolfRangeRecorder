@@ -31,13 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
     image.addEventListener('click', (event) => {
         const rect = image.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
-        const x = event.clientX - containerRect.left;
-        const y = event.clientY - containerRect.top;
     
+        // Calculate the click position relative to the image
+        const clickX = event.clientX - rect.left;
+        const clickY = event.clientY - rect.top;
+    
+        // Calculate the scaling factors
+        const scaleX = image.naturalWidth / rect.width;
+        const scaleY = image.naturalHeight / rect.height;
+    
+        // Create the marker
         const marker = document.createElement('div');
         marker.classList.add('marker');
-        marker.style.left = `${x}px`;
-        marker.style.top = `${y}px`;
+    
+        // Position the marker relative to the container
+        marker.style.left = `${clickX}px`;
+        marker.style.top = `${clickY}px`;
+    
         container.appendChild(marker);
         markers.push(marker);
     });
@@ -69,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.click();
         });
     });
-    
+
     rangeSelect.addEventListener('change', (event) => {
         const selectedRange = event.target.value;
         image.src = selectedRange;

@@ -3,9 +3,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    padding: 20px 0;
 }
 
 h1 {
@@ -73,11 +74,16 @@ select option {
 .container {
     text-align: center;
     background-color: white;
-    padding: 80px 30px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
 .button-container {
@@ -91,21 +97,33 @@ select option {
     margin-bottom: 20px;
 }
 
+.controls, #range-select, .button-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
 /* Container Styling */
 .image-container {
-    position: relative; /* Ensure the container is relatively positioned */
-    width: 100%; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    overflow: hidden;
+    margin: 20px 0;
 }
 
 /* Marker Styling */
 .marker {
-    position: absolute; /* Absolutely position markers within the container */
-    width: 4px; /* Adjust size as needed */
-    height: 4px; /* Adjust size as needed */
-    background-color: red; /* Marker color */
-    border-radius: 50%; /* Make markers circular */
-    transform: translate(-50%, -50%); /* Center the marker */
+    position: absolute;
+    width: 4px; /* Increased size for visibility */
+    height: 4px; /* Increased size for visibility */
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* This centers the marker on the click point */
 }
 
 #range-select {
@@ -127,6 +145,7 @@ select option {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 200px; /* Added to limit the width */
     margin: 18px auto; /* Center the buttons if they don't take full width */
+    margin-top: 20px;
 }
 
 #download-btn:hover {
@@ -142,4 +161,5 @@ select option {
     width: 100%;
     max-width: 800px;
     border: 2px solid #313131;
+    display: block; /* This ensures there's no extra space below the image */
 }
