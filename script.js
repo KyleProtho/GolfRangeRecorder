@@ -4,14 +4,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const undoBtn = document.getElementById('undo-btn');
     const redoBtn = document.getElementById('redo-btn');
     const downloadBtn = document.getElementById('download-btn');
+    const rangeSelect = document.getElementById('range-select');
     let markers = [];
     let undoStack = [];
 
+    const drivingRanges = [
+        { path: 'img/Scallys - Moon Twp PA.jpg', name: 'Scallys - Moon Twp PA' },
+        // Add more driving ranges here
+        // { path: 'img/Range2.jpg', name: 'Range 2' },
+        // { path: 'img/Range3.jpg', name: 'Range 3' }
+    ];
+
+    // Populate the driving range dropdown
+    drivingRanges.forEach(range => {
+        const option = document.createElement('option');
+        option.value = range.path;
+        option.textContent = range.name;
+        rangeSelect.appendChild(option);
+    });
+
+    // Set the initial image source based on the first driving range in the array
+    if (drivingRanges.length > 0) {
+        image.src = drivingRanges[0].path;
+    }
+
     image.addEventListener('click', (event) => {
         const rect = image.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
+        const containerRect = container.getBoundingClientRect();
+        const x = event.clientX - containerRect.left;
+        const y = event.clientY - containerRect.top;
+    
         const marker = document.createElement('div');
         marker.classList.add('marker');
         marker.style.left = `${x}px`;
@@ -43,5 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
             link.href = canvas.toDataURL();
             link.click();
         });
+    });
+
+    rangeSelect.addEventListener('change', (event) => {
+        const selectedRange = event.target.value;
+        image.src = selectedRange;
+        // Clear existing markers when the image changes
+        markers.forEach(marker => container.removeChild(marker));
+        markers = [];
+        undoStack = [];
     });
 });

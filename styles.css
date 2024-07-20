@@ -17,6 +17,35 @@ h1 {
     color: #333;
 }
 
+button {
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #19462c; /* green color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin: 5px; /* Add some space between buttons */
+}
+
+button:hover {
+    background-color: #133622; /* Darker green for hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.5);
+}
+
+button:active {
+    background-color: #0b2015; /* Even darker blue for active state */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .container {
     text-align: center;
     background-color: white;
@@ -48,11 +77,13 @@ h1 {
     height: 4px;
     background-color: red;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* This centers the marker */
 }
 
-#club-select {
+#range-select {
     font-family: Arial, sans-serif;
+    padding: 5px 10px;
+    margin: 5px;
 }
 
 #download-btn {
